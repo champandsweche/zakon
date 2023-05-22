@@ -54,12 +54,7 @@ export default {
           item.isRotated = !item.isRotated;
         } else {
           item.isOpen = false;
-          if (item.isRotated) {
-            item.isRotated = false;
-            setTimeout(() => {
-              item.isRotated = true;
-            }, 10);
-          }
+          item.isRotated = item.isOpen;
         }
       });
     }
@@ -175,6 +170,11 @@ export default {
 }
 .accordion--header.open p{
   color: var(--blue-primary-);
+}
+@media screen and (max-width: 400px) {
+  .left-side {
+    flex-direction: column;
+  }
 }
 
 
