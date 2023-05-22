@@ -1,51 +1,102 @@
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-body{
-     font-family: 'Montserrat', sans-serif;
- }
-:root {
-    --white- : #F9FBFE;
-    --dark- : #1F1F1F;
-    /*  Blue  */
-    --blue-secondary- : #1D48BB;
-    --blue-primary- : #6A99E6;
 
-    --gray-:#EFF5FF;
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--blue-primary-);
+}
+
+body::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(29, 72, 187);
+}
+
+:root {
+    --white-: #F9FBFE;
+    --dark-: #1F1F1F;
+    /*  Blue  */
+    --blue-secondary-: #1D48BB;
+    --blue-primary-: #6A99E6;
+    --gray-: #EFF5FF;
+}
+
 a {
     cursor: pointer;
 }
+
 .container {
     max-width: 1560px;
     width: 100%;
     margin: 0 auto;
 }
+
 .dn {
     display: none;
 }
+
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    color: var(--dark-);
+    padding: 15px 20px;
+    border: 1px solid #1D48BB;
+    border-radius: 100px;
+    max-width: 316px;
+    transition: color .3s;
+}
+
+.btn--arrow {
+    width: 40px;
+    height: 40px;
+    background: var(--blue-secondary-);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .btn--arrow {
+    transform: translateX(10px);
+}
+
+.btn:hover {
+    color: #9b9b9b;
+}
+
 @media screen and (max-width: 1700px) {
-  .container {
-      padding-left: 100px;
-      padding-right: 100px;
-  }
+    .container {
+        padding: 0 100px;
+    }
 }
+
 @media screen and (max-width: 1025px) {
-  .container {
-      padding-left: 50px;
-      padding-right: 50px;
-  }
+    .container {
+        padding: 0 40px;
+    }
 }
+
 @media screen and (max-width: 768px) {
-  .container {
-      padding-left: 32px;
-      padding-right: 32px;
-  }
+    .container {
+        padding: 0 30px;
+    }
 }
+
 @media screen and (max-width: 470px) {
-  .container {
-      padding-left: 20px;
-      padding-right: 20px;
-  }
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
