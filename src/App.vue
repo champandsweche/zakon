@@ -23,6 +23,12 @@
         <h1 class="title dn">Заполните заявку на консультацию</h1>
         <SectionApplication/>
       </section>
+<<<<<<< HEAD
+=======
+      <section class="section--help">
+        <SectionHelp/>
+      </section>
+>>>>>>> b4f37a8 (Закон асаÑйт)
 
     </main>
     <footer class="footer" id="footer">
@@ -40,6 +46,7 @@ import SectionService from "@/sections/SectionService.vue";
 import SectionAbout from "@/sections/SectionAbout.vue";
 import SectionApplication from "@/sections/SectionApplication.vue";
 import Footer from "@/sections/Footer.vue";
+import SectionHelp from "@/sections/SectionHelp.vue";
 export default  {
   directives: {
      scrollTo: VueScrollTo,
@@ -50,6 +57,7 @@ export default  {
     }
   },
   components: {
+    SectionHelp,
     Header,
     SectionHeader,
     SectionService,
