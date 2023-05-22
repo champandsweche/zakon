@@ -419,37 +419,6 @@ export default {
   padding-bottom: 40px;
 }
 
-.btn {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
-  color: var(--blue-secondary-);
-  padding: 15px 20px;
-  border: 1.25px solid #1D48BB;
-  border-radius: 100px;
-  max-width: 250px;
-  cursor: pointer;
-}
-
-.btn--arrow {
-  width: 40px;
-  height: 40px;
-  background: var(--blue-secondary-);
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.btn:hover .btn--arrow {
-  transform: translateX(10px);
-}
-
-.btn:hover {
-  color: #CDCDCD;
-}
 @media screen and (max-width: 1200px) {
   .title p {
     font-size: 32px;
