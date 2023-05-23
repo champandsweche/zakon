@@ -4,6 +4,8 @@ npm<template>
             <div class="footer--inner">
                 <div class="left-side">
                     <img :src="Logo" alt="" class="logo">
+                  <p>В современном мире, где правовые вопросы играют все более важную роль в нашей повседневной жизни, мы осознаем, что наличие квалифицированного юридического партнера может оказаться ключевым фактором успеха для частных лиц и предприятий. Наша команда состоит из опытных юристов, которые обладают глубокими знаниями и обширным опытом в различных областях права.</p>
+                  <p>Кроме того, мы ценим время и ресурсы наших клиентов. Поэтому мы стараемся предоставить быстрое и эффективное решение ваших юридических проблем. Наша команда обладает не только глубокими знаниями в области права, но и стремится быть в курсе последних изменений в законодательстве и судебной практике. Мы используем передовые технологии и методы работы, чтобы обеспечить максимальную эффективность и удовлетворить все ваши потребности.</p>
                 </div>
                 <div class="right-side">
                     <div class="text">
@@ -11,8 +13,9 @@ npm<template>
                         <p>Аристей - юридические услуги</p>
                     </div>
                     <div class="text">
+                        <b>info@gerrart.ru</b>
                         <b>+7 (800) 775 02 13</b>
-                        <p>г Белореченск, Шалимово 5/1</p>
+                        <p>г Белореченск, Шалимова 5/1</p>
                     </div>
                     <img :src="El" alt="">
                 </div>
@@ -34,13 +37,26 @@ export default {
 </script>
 
 <style scoped>
+.footer--inner {
+  gap: 100px;
+}
+.left-side p {
+  color: var(--white-);
+  line-height: 25px;
+  text-indent: 25px;
+}
+.left-side img {
+  max-width: 50%;
+}
+.right-side img{
+  scale: .7;
+}
 .section--footer {
     margin-top: 365px;
     background-color: var(--dark-);
     padding-top: 168px;
     padding-bottom: 105px;
 }
-
 .footer--inner {
     display: flex;
     flex-direction: row;
@@ -51,6 +67,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    max-width: 50%;
 }
 
 .left-side form {
@@ -69,7 +86,10 @@ export default {
     border-radius: 25px;
     border: 1px solid var(--white-);
 }
-
+.left-side p {
+  font-size: 22px;
+  line-height: 35px;
+}
 .left-side b {
     font-style: normal;
     font-weight: 700;
@@ -149,9 +169,32 @@ export default {
         flex-direction: column;
         gap: 100px;
     }
-
-    .logo {
-        max-width: 80%;
+  .left-side {
+    max-width: 100%;
+  }
+  .right-side {
+    max-width: 100%;
+  }
+    .left-side img{
+      max-width: 100%;
     }
+    .right-side img{
+      max-width: 50%;
+    }
+    .left-side p {
+      font-size: 16px;
+      line-height: 25px;
+    }
+}
+@media screen and (max-width: 480px) {
+  .right-side .text b{
+    font-size: 34px;
+  }
+  .right-side .text p {
+    font-size: 20px;
+  }
+  .right-side img {
+    display: none;
+  }
 }
 </style>
