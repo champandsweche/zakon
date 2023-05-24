@@ -179,7 +179,7 @@ export default {
 
             setTimeout(() => {
               this.success = false;
-            }, 3000);
+            }, 5000);
           })
           .catch(error => {
 

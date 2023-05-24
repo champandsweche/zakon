@@ -43,6 +43,9 @@
                         <li>
                             <a v-scroll-to.scrollTo="{ el: '#footer' }">Контакты</a>
                         </li>
+                      <li>
+                            <a v-scroll-to.scrollTo="{ el: '#help' }">Помощь</a>
+                        </li>
                     </ul>
                 </nav>
                 <a v-scroll-to.scrollTo="{ el: '#contact' }" class="header--btn">
@@ -272,7 +275,7 @@ export default {
     stroke: var(--blue-primary-);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1450px) {
     .nav {
         display: none;
     }
