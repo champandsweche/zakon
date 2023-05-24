@@ -76,9 +76,29 @@ a {
     color: #9b9b9b;
 }
 
+.inner--header {
+    margin-top: 360px;
+}
+
 @media screen and (max-width: 1700px) {
     .container {
         padding: 0 100px;
+    }
+
+    .inner--header {
+        margin-top: 320px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .inner--header {
+        margin-top: 270px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .inner--header {
+        margin-top: 210px;
     }
 }
 
@@ -86,15 +106,23 @@ a {
     .container {
         padding: 0 40px;
     }
+
+    .inner--header {
+        margin-top: 160px;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .container {
         padding: 0 30px;
     }
+
+    .inner--header {
+        margin-top: 125px;
+    }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 468px) {
     .container {
         padding-left: 20px;
         padding-right: 20px;

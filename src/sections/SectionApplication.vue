@@ -1,7 +1,7 @@
 <template>
     <div class="section--application">
         <div class="container">
-            <div class="section--application--inner">
+            <div class="inner--header">
                 <div class="left-side">
                     <b>03</b>
                     <div class="title">
@@ -59,16 +59,22 @@
                                 <span class="success--alert" v-if="success">Форма успешно отправлена</span>
                                 <div class="custom-select">
                                     <div class="select--header" :class="{ active: isSelectOpen }" @click="toggleSelect">
-                                        <p>{{ selectedSubItem ? selectedSubItem.name : (selectedService ? selectedService.name : 'Выберите услугу') }}</p>
-                                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" :class="{ rotate: isSelectOpen }">
-                                            <path d="M13 1.5L7 6.5L1 1.5" stroke="#F9FBFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <p>{{
+                                            selectedSubItem ? selectedSubItem.name : (selectedService ? selectedService.name : 'Выберите услугу')
+                                            }}</p>
+                                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg" :class="{ rotate: isSelectOpen }">
+                                            <path d="M13 1.5L7 6.5L1 1.5" stroke="#F9FBFE" stroke-width="2"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     </div>
                                     <div class="select--content" :class="{ active: isSelectOpen }">
-                                        <div class="content--item" v-for="item in items" :key="item.id" @click="selectService(item)">
+                                        <div class="content--item" v-for="item in items" :key="item.id"
+                                             @click="selectItem(item)">
                                             <p>{{ item.name }}</p>
                                             <div v-if="item.subItems" class="sub-items">
-                                                <div class="sub-items__element" v-for="subItem in item.subItems" :key="subItem.id" @click="selectSubItem(subItem)">
+                                                <div class="sub-items__element" v-for="subItem in item.subItems"
+                                                     :key="subItem.id" @click="selectSubItem(subItem)">
                                                     <p>{{ subItem.name }}</p>
                                                 </div>
                                             </div>
@@ -76,9 +82,12 @@
                                     </div>
                                 </div>
                                 <div class="custom-checkbox">
-                                    <input class="custom-checkbox__input" type="checkbox" v-model="checkboxChecked" @change="removeErrorCheckbox" ref="checkboxInput" :class="{ 'input--error': checkboxChecked }" />
+                                    <input class="custom-checkbox__input" type="checkbox" v-model="checkboxChecked"
+                                           @change="removeErrorCheckbox" ref="checkboxInput"
+                                           :class="{ 'input--error': checkboxChecked }"/>
                                     <span class="checkmark"></span>
-                                    <label for="custom-checkbox__label">Согласен на обработку персональных данных</label>
+                                    <label for="custom-checkbox__label">Согласен на обработку персональных
+                                        данных</label>
                                 </div>
                                 <button class="btn" type="submit">
                                     <div class="btn--arrow">
@@ -119,8 +128,8 @@ export default {
                     id: 1,
                     name: "Административное право",
                     subItems: [
-                        {id: 1, name: 'Как решать дела с форумом'},
-                        {id: 2, name: 'АМС Rborn'},
+                        {id: 1, name: 'Получение разрешений лицензий'},
+                        {id: 2, name: 'Наложение штрафных санкций в различных сферах'},
                     ],
                 },
                 {
@@ -160,6 +169,25 @@ export default {
     methods: {
         toggleSelect() {
             this.isSelectOpen = !this.isSelectOpen;
+            if (!this.isSelectOpen) {
+                this.selectedSubItem = null;
+            }
+        },
+        selectItem(item) {
+            if (item.subItems && item.subItems.length > 0) {
+                if (this.selectedSubItem && this.selectedSubItem.parentId === item.id) {
+                    this.selectedService = item;
+                } else {
+                    this.selectedService = item;
+                    if (!item.subItems || !item.subItems.includes(this.selectedSubItem)) {
+                        this.selectedSubItem = item.subItems ? item.subItems[0] : null;
+                    }
+                }
+            } else {
+                this.selectedService = item;
+                this.selectedSubItem = null;
+                this.isSelectOpen = false;
+            }
         },
         selectSubItem(subItem) {
             this.selectedSubItem = subItem;
@@ -585,12 +613,6 @@ export default {
     .content--left-side form input {
         width: 100%;
         max-width: 800px;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .select--content.active {
-        width: 260px;
     }
 }
 

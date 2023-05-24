@@ -57,12 +57,6 @@ export default {
 </script>
 
 <style scoped>
-.inner--header {
-    margin-top: 360px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .left-side {
     display: flex;

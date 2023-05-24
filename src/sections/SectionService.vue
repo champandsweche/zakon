@@ -38,6 +38,7 @@
                     >
                         <swiper-slide class="swiper-slide card" v-for="(card, index) in cards" :key="index">
                             <div class="service__card-inner">
+                                <div class="inner__text">
                                 <b class="card-id">#{{ card.id }}</b>
                                 <img :src="card.image" alt="Картинка" width="190" height="190">
                                 <h3 class="card-title">{{ card.title }}</h3>
@@ -45,6 +46,7 @@
                                 <div class="card-price">
                                     <span></span>
                                     <p>От {{ card.price }} за услугу</p>
+                                </div>
                                 </div>
                                 <a v-scroll-to.scrollTo="{ el: '#contact' }" class="card-btn">
                                     <div class="card-btn--arrow">
@@ -133,15 +135,15 @@ export default {
                 breakpoints: {
                     1000: {
                         slidesPerView: 1,
-                        spaceBetween: 30
+                        spaceBetween: 40
                     },
                     1200: {
                         slidesPerView: 2,
-                        spaceBetween: 40
+                        spaceBetween: 50
                     },
                     1540: {
                         slidesPerView: 3,
-                        spaceBetween: 60
+                        spaceBetween: 100
                     }
                 },
                 navigation: {
@@ -163,7 +165,6 @@ export default {
 @import 'swiper/swiper-bundle.css';
 
 .inner--header {
-    margin-top: 360px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -255,6 +256,19 @@ export default {
     border-radius: 25px;
     padding: 20px;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inner__text {
+
+}
+.card{
+  cursor: grab;
+}
+.card:active {
+  cursor: grabbing;
 }
 
 .card-id {

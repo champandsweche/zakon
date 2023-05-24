@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "gsap": "^3.11.5",
+    "scrolltrigger": "^1.0.1",
+    "smooth-scrolling": "^2.3.12",
     "swiper": "^9.3.2",
     "vue": "^3.2.47",
     "vue-carousel": "^0.18.0",
