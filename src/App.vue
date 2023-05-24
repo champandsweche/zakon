@@ -31,6 +31,7 @@
 <script>
 import VueScrollTo from 'vue-scrollto';
 import '../public/css/reset.css';
+import '../public/css/custom-checkbox.css';
 import '../public/css/global.css';
 import Header from "@/components/Header.vue";
 import SectionHeader from "@/sections/SectionHeader.vue";
