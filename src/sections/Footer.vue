@@ -1,4 +1,4 @@
-<template>
+npm<template>
     <div class="section--footer">
         <div class="container">
             <div class="footer--inner">
