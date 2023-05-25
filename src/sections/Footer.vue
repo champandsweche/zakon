@@ -13,7 +13,7 @@
                         <p>Аристей - юридические услуги</p>
                     </div>
                     <div class="text">
-                        <b>info@gerrart.ru</b>
+                        <b>zakon@aristei24.ru</b>
                         <b>+7 (800) 775 02 13</b>
                         <p>г Белореченск, Шалимова 5/1</p>
                     </div>
@@ -21,6 +21,11 @@
                 </div>
             </div>
         </div>
+      <div class="copyright">
+        <div class="container">
+          <p>© Все права  защищены ООО “Гераарт” 2023 </p>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -55,7 +60,6 @@ export default {
     margin-top: 365px;
     background-color: var(--dark-);
     padding-top: 168px;
-    padding-bottom: 105px;
 }
 .footer--inner {
     display: flex;
@@ -162,7 +166,22 @@ export default {
     color: var(--white-);
     opacity: 0.5;
 }
-
+.copyright {
+  background-color: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 39px;
+  padding-bottom: 39px;
+}
+.copyright p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--white-);
+  text-align: center;
+}
 @media screen and (max-width: 1200px) {
     .footer--inner {
         display: flex;

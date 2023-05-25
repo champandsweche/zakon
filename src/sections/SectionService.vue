@@ -48,7 +48,7 @@
                                     <p>От {{ card.price }} за услугу</p>
                                 </div>
                                 </div>
-                                <a v-scroll-to.scrollTo="{ el: '#contact' }" class="card-btn">
+                                <button class="card-btn" @click="openModal(card)">
                                     <div class="card-btn--arrow">
                                         <svg width="19" height="10" viewBox="0 0 19 10" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +57,8 @@
                                                     fill="#F9FBFE"/>
                                         </svg>
                                     </div>
-                                    Записаться
-                                </a>
+                                    Подробнее
+                                </button>
                             </div>
                         </swiper-slide>
                     </swiper>
