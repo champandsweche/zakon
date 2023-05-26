@@ -43,7 +43,7 @@
                         <li>
                             <a v-scroll-to.scrollTo="{ el: '#footer' }">Контакты</a>
                         </li>
-                      <li>
+                        <li>
                             <a v-scroll-to.scrollTo="{ el: '#help' }">Помощь</a>
                         </li>
                     </ul>
@@ -69,6 +69,7 @@
 
 <script>
 import VueScrollTo from 'vue-scrollto';
+
 export default {
     name: "Header",
     directives: {
@@ -100,9 +101,10 @@ export default {
 
 <style scoped>
 .header {
-  width: 100%;
-  position: absolute;
+    width: 100%;
+    position: absolute;
 }
+
 .burger {
     padding: 80px 60px;
     position: absolute;
@@ -112,17 +114,18 @@ export default {
     height: 100vh;
     width: 100%;
     transition: transform .6s;
-    transform: translateX(200%);
+    transform: translateY(-200%);
 }
 
 .burger--active {
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .burger--inner {
     display: flex;
     flex-direction: column;
 }
+
 .burger--main {
     display: flex;
     flex-direction: column;
@@ -130,6 +133,7 @@ export default {
     align-items: center;
     margin-top: 100px;
 }
+
 .burger--main a {
     font-style: normal;
     font-weight: 600;
@@ -147,6 +151,7 @@ export default {
     display: flex;
     justify-content: flex-end;
 }
+
 .burger--btn {
     display: flex;
     align-items: center;
@@ -159,6 +164,7 @@ export default {
     color: #F9FBFE;
     max-width: 271px;
 }
+
 .header--inner {
     margin-top: 70px;
     display: flex;
@@ -205,11 +211,13 @@ export default {
     width: 16px;
     background-color: #FFFFFF;
 }
+
 .nav ul {
     display: flex;
     flex-direction: row;
     gap: 60px;
 }
+
 .nav ul li a {
     font-style: normal;
     font-weight: 400;
@@ -233,9 +241,11 @@ export default {
     transform-origin: bottom right;
     transition: transform 0.5s;
 }
+
 .nav ul li a:hover {
     color: #CDCDCD;
 }
+
 .nav ul li a:hover::after {
     transform-origin: bottom left;
     transform: scaleX(1);
@@ -249,6 +259,7 @@ export default {
     align-items: center;
     color: var(--white-);
 }
+
 .btn--arrow {
     width: 40px;
     height: 40px;
@@ -263,6 +274,7 @@ export default {
 .header--btn:hover .btn--arrow {
     transform: translateX(10px);
 }
+
 .header--btn:hover {
     color: #CDCDCD;
 }
@@ -289,6 +301,12 @@ export default {
     }
 }
 
+@media (max-width: 1200px) {
+    .burger--main a {
+        font-size: 28px;
+    }
+}
+
 @media (max-width: 992px) {
     .header--inner {
         margin-top: 50px;
@@ -296,8 +314,32 @@ export default {
 }
 
 @media (max-width: 768px) {
+    .burger {
+        padding: 65px 40px;
+    }
+
     .header--inner {
         margin-top: 40px;
+    }
+
+    .burger--main a {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    .burger--main a {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 468px) {
+    .burger {
+        padding: 50px 30px;
+    }
+
+    .burger--main a {
+        font-size: 22px;
     }
 }
 

@@ -2,11 +2,11 @@
     <div class="section--application">
         <div class="container">
             <div class="inner--header">
-                <div class="left-side">
-                    <b>03</b>
-                    <div class="title">
+                <div class="title">
+                    <span class="title__number">03</span>
+                    <div class="title__content">
                         <p>Заполните заявку на консультацию</p>
-                        <div class="progress-bar">
+                        <div class="title__progress">
                             <span></span>
                             <span></span>
                         </div>
@@ -16,7 +16,7 @@
                     <h2>Заполните заявку и мы свяжемся с вами в течение 30 минут</h2>
                     <div class="content--inner">
                         <div class="content--left-side">
-                            <form @submit.prevent="submitForm" id="contact">
+                            <form class="application--content__contact" @submit.prevent="submitForm" id="contact">
                                 <ul class="application__list">
                                     <li class="item">
                                         <input
@@ -86,7 +86,8 @@
                                            @change="removeErrorCheckbox" ref="checkboxInput"
                                            :class="{ 'input--error': checkboxChecked }"/>
                                     <span class="checkmark"></span>
-                                    <label for="custom-checkbox__label">Согласен на обработку персональных
+                                    <label class="custom-checkbox__label" for="custom-checkbox__label">Согласен на
+                                        обработку персональных
                                         данных</label>
                                 </div>
                                 <button class="btn" type="submit">
@@ -128,30 +129,96 @@ export default {
                     id: 1,
                     name: "Административное право",
                     subItems: [
-                        {id: 1, name: 'Получение разрешений лицензий'},
-                        {id: 2, name: 'Наложение штрафных санкций в различных сферах'},
+                        {id: 1, name: 'Составление жалоб'},
+                        {id: 2, name: 'Составление ходатайств'},
+                        {id: 3, name: 'Составление исковых заявлений'},
+                        {id: 4, name: 'Представительство в суде'},
+                        {id: 5, name: 'Обжалование штрафов'},
+                        {id: 6, name: 'Помощь по вопросам миграции'},
                     ],
                 },
                 {
                     id: 2,
                     name: "Трудовое право",
                     subItems: [
-                        {id: 1, name: 'Уволили без зачисления ЗП'},
-                        {id: 2, name: 'Оформление на работу без трудовой книжки'},
+                        {id: 1, name: 'Оспаривание незаконного увольнения'},
+                        {id: 2, name: 'Взыскание заработной платы'},
+                        {id: 3, name: 'Составление жалоб'},
+                        {id: 4, name: 'Составление ходатайств'},
+                        {id: 5, name: 'Составление исковых заявлений'},
+                        {id: 6, name: 'Представительство в суде'},
+                        {id: 7, name: 'Взыскание компенсаций'},
                     ],
                 },
                 {
                     id: 3,
                     name: "Семейное право",
+                    subItems: [
+                        {id: 1, name: 'Выяснение правовой позиции'},
+                        {id: 2, name: 'Консультация'},
+                        {id: 3, name: 'Писменная консультация\n'},
+                        {id: 4, name: 'Написание искового заявления на расторжение брака'},
+                        {id: 5, name: 'Написание искового заявление на алименты'},
+                        {id: 6, name: 'Написание искового заявления на установление отцовства'},
+                        {id: 7, name: 'Написание возражения на исковое заявление по установлению отцовства и факта родственных отношении'},
+                        {id: 8, name: 'Написание искового заявления на раздел имущества'},
+                        {id: 9, name: 'Написание возражения на исковое заявление по разделу имущества'},
+                        {id: 10, name: 'Представительство в суде первой инстанции по расторжению брака'},
+                        {id: 11, name: 'Представительство в суде первой инстанции по установлению алиментов'},
+                        {id: 12, name: 'Представительство в суде первой инстанции по установлению отцовства и родственных отношении'},
+                        {id: 13, name: 'Представительство в суде первой инстанции по разделу имущества'},
+                        {id: 14, name: 'Написание искового заявления о признании брака фиктивным'},
+                        {id: 15, name: 'Представительство в суде первой инстанции о признании брака фиктивным'}
+                    ],
                 },
                 {
                     id: 4,
                     name: "Автомобильное право",
+                    subItems: [
+                        {id: 1, name: 'Оспаривание штрафов'},
+                        {id: 2, name: 'Защита виновника ДТП'},
+                        {id: 3, name: 'Взыскание ущерба с виновника ДТП'},
+                        {id: 4, name: 'Страховые споры'},
+                        {id: 5, name: 'Взыскание страховых выплат'},
+                        {id: 6, name: 'Снятие с регистрационного учёта'},
+                        {id: 7, name: 'Выезд на место ДТП'},
+                        {id: 8, name: 'Оспаривание сделок'},
+                        {id: 9, name: 'Правовая экспертиза документов'},
+                        {id: 10, name: 'Представительство в суде'},
+                    ],
                 },
                 {
                     id: 5,
                     name: "Земельное право",
+                    subItems: [
+                        {id: 1, name: 'Сопровождение сделок с недвижимостью'},
+                        {id: 2, name: 'Изменение вида разрешённого использования земли'},
+                        {id: 3, name: 'Представительство в суде'},
+                        {id: 4, name: 'Составление исковых заявлений'},
+                        {id: 5, name: 'Юридическая проверка недвижимости'},
+                        {id: 6, name: 'Снятие ареста с имущества'},
+                        {id: 7, name: 'Раздел имущества'},
+                        {id: 8, name: 'Признание права собственности'},
+                        {id: 9, name: 'Регистрация права собственности на земельный участок'},
+                        {id: 10, name: 'Оформление документов на землю'},
+                        {id: 11, name: 'Оформление участка под домом'},
+                        {id: 12, name: 'Оформление разрешений на строительство'},
+                    ],
                 },
+                {
+                    id: 6,
+                    name: "Банкротство и кредиты",
+                    subItems: [
+                        {id: 1, name: 'Банкротство физических лиц'},
+                        {id: 2, name: 'Ликвидация организаций'},
+                        {id: 3, name: 'Представительство в суде'},
+                        {id: 4, name: 'Банкротство юридических лиц'},
+                        {id: 5, name: 'Подготовка документов в суд'},
+                        {id: 6, name: 'Составление ходатайств'},
+                        {id: 7, name: 'Отмена судебных решений'},
+                        {id: 8, name: 'Обжалование действий приставов'},
+                    ],
+                }
             ],
             img: "../public/img/sectionApplication/img.svg",
             selectedService: null,
@@ -347,54 +414,6 @@ export default {
     margin-top: 350px;
 }
 
-.left-side {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.left-side b {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 96px;
-    line-height: 117px;
-    color: var(--blue-primary-);
-}
-
-.title {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.title p {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 49px;
-    color: var(--dark-);
-}
-
-.progress-bar {
-    display: flex;
-    align-items: center;
-}
-
-.progress-bar span:nth-child(1) {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border-radius: 200px;
-    background-color: var(--blue-primary-);
-}
-
-.progress-bar span:nth-child(2) {
-    width: 70%;
-    max-width: 200px;
-    height: 3px;
-    background-color: var(--blue-primary-);
-}
-
 .application--content {
     margin-top: 120px;
 }
@@ -418,14 +437,15 @@ export default {
 }
 
 .content--inner {
+    margin-top: 90px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 70px;
 }
 
 .content--left-side {
-    margin-top: 90px;
+    max-width: 450px;
     width: 100%;
 }
 
@@ -440,7 +460,6 @@ export default {
     padding: 25px;
     gap: 10px;
     width: 100%;
-    max-width: 450px;
     background: var(--gray-);
     border-radius: 25px;
     border: 1px solid var(--gray-);
@@ -471,15 +490,9 @@ export default {
     margin-top: 10px;
 }
 
-.custom-checkbox {
-    max-width: 450px;
-}
-
 .success--alert {
-    width: 100%;
     background-color: #A7FFBA;
     border-radius: 5px;
-    max-width: 450px;
     padding: 25px 13px;
     display: flex;
     justify-content: center;
@@ -501,7 +514,6 @@ export default {
     align-items: center;
     padding: 25px;
     gap: 10px;
-    max-width: 450px;
     background: var(--blue-secondary-);
     border-radius: 25px;
     cursor: pointer;
@@ -588,6 +600,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    line-height: 1.4;
 }
 
 .sub-items__element {
@@ -600,36 +613,64 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
-    .title p {
-        font-size: 32px;
-    }
-}
-
-@media screen and (max-width: 900px) {
     .content--inner {
         flex-direction: column-reverse;
     }
 
-    .content--left-side form input {
+    .content--right-side img {
+        width: 420px;
+        height: 460px;
+    }
+
+    .content--left-side {
+        max-width: 600px;
         width: 100%;
-        max-width: 800px;
+    }
+
+    .select--content {
+        max-width: 100%;
+    }
+
+    .select--content.active {
+        position: static;
     }
 }
 
-@media screen and (max-width: 500px) {
-    .inner--header {
+@media (max-width: 768px) {
+    .content--right-side img {
+        width: 360px;
+        height: 370px;
+    }
+
+    .select--header p {
+        font-size: 18px;
+    }
+
+    .application__list {
+        gap: 20px;
+    }
+
+    .content--left-side form {
         gap: 40px;
-        flex-direction: column;
-        align-items: center;
     }
 
-    .left-side {
-        display: flex;
-        flex-direction: column;
+    .select--content {
+        font-size: 14px;
     }
 
-    .right--side {
-        display: none;
+    .custom-checkbox__label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .content--right-side img {
+        width: 320px;
+        height: 330px;
+    }
+
+    .select--header p {
+        font-size: 16px;
     }
 }
 </style>

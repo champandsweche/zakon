@@ -170,6 +170,11 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
+    .section-header {
+        height: auto;
+        padding-bottom: 150px;
+    }
+
     .section-header--inner {
         flex-direction: column;
     }
@@ -205,7 +210,11 @@ export default {
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 992px) {
+    .section-header {
+        padding-bottom: 120px;
+    }
+
     .left--side {
         gap: 40px;
     }
@@ -263,6 +272,10 @@ export default {
 }
 
 @media (max-width: 600px) {
+    .section-header {
+        padding-bottom: 100px;
+    }
+
     .section-header__title {
         font-size: 28px;
     }

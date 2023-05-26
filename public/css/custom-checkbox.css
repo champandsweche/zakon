@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     transition: color .3s;
+    max-width: 450px;
 }
 
 .custom-checkbox:hover {
@@ -20,14 +21,18 @@
     transition: color .3s;
 }
 
+.custom-checkbox__label {
+    padding-left: 30px;
+}
+
 .custom-checkbox__input.input--error + label,
 .custom-checkbox__input.input--error ~ label {
     color: red;
 }
 
 .custom-checkbox .checkmark {
-    position: relative;
-    margin-right: 15px;
+    position: absolute;
+    z-index: -1;
     width: 20px;
     height: 20px;
     border: 1px solid #ccc;
@@ -41,7 +46,7 @@
     transition: opacity .3s;
 }
 
-.custom-checkbox input:checked ~ .checkmark:after {
+.custom-checkbox input:checked + .checkmark:after {
     opacity: 1;
 }
 

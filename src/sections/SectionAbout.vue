@@ -1,22 +1,20 @@
 <template>
-    <div class="section--about">
+    <div class="section--about inner--header">
         <div class="container">
             <div class="section--about--inner">
-                <div class="inner--header">
-                    <div class="left-side">
-                        <b>02</b>
-                        <div class="title">
-                            <p>Правовая поддержка</p>
-                            <div class="progress-bar">
-                                <span></span>
-                                <span></span>
-                            </div>
+                <div class="title">
+                    <span class="title__number">02</span>
+                    <div class="title__content">
+                        <p>Правовая поддержка</p>
+                        <div class="title__progress">
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
                 <div class="inner--main">
                     <div class="main--left-side">
-                        <img :src="vector" alt="Декоративный элемент">
+                        <img :src="vector" alt="Декоративный элемент" width="330" height="330">
                     </div>
                     <div class="main--right-side">
                         <b>Мы понимаем, что в современном быстро меняющемся мире, правовые вопросы могут стать серьезным
@@ -57,80 +55,33 @@ export default {
 </script>
 
 <style scoped>
-
-.left-side {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.left-side b {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 96px;
-    line-height: 117px;
-    color: var(--blue-primary-);
-}
-
-.title {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.title p {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 49px;
-    color: var(--dark-);
-}
-
-.progress-bar {
-    display: flex;
-    align-items: center;
-}
-
-.progress-bar span:nth-child(1) {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border-radius: 200px;
-    background-color: var(--blue-primary-);
-}
-
-.progress-bar span:nth-child(2) {
-    width: 70%;
-    max-width: 200px;
-    height: 3px;
-    background-color: var(--blue-primary-);
-}
-
 .inner--main {
     margin-top: 120px;
     display: flex;
-    flex-direction: row;
     gap: 120px;
 }
 
 .main--left-side {
+    max-width: 330px;
     width: 100%;
 }
 
 .main--right-side {
+    max-width: 1000px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 60px;
 }
 
 .main--right-side b {
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
-    line-height: 39px;
+    line-height: 1.2;
     display: flex;
     align-items: center;
     font-feature-settings: 'kern' off;
+    margin-bottom: 50px;
     color: var(--blue-secondary-);
 }
 
@@ -138,43 +89,110 @@ export default {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 24px;
-    line-height: 29px;
     color: var(--dark-);
     opacity: 0.75;
-
+    margin-bottom: 75px;
 }
 
-@media screen and (max-width: 1200px) {
-    .title p {
-        font-size: 32px;
+@media screen and (max-width: 1400px) {
+    .inner--main {
+        gap: 60px;
+    }
+
+    .main--right-side b {
+        font-size: 26px;
+    }
+
+    .main--right-side p {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    .main--left-side img {
+        width: 290px;
+        height: 290px;
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1200px) {
+    .inner--main {
+        margin-top: 90px;
+    }
+
+    .main--right-side b {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .main--right-side p {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
     .inner--main {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .main--left-side {
-        display: flex;
-        justify-content: center;
+    .main--right-side .btn,
+    .main--left-side img {
+        margin: 0 auto;
     }
 }
 
-@media screen and (max-width: 500px) {
-    .inner--header {
-        gap: 40px;
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 768px) {
+    .inner--main {
+        margin-top: 70px;
+        gap: 45px;
     }
 
-    .left-side {
-        display: flex;
-        flex-direction: column;
+    .main--right-side b {
+        font-size: 22px;
+        margin-bottom: 30px;
     }
 
-    .right--side {
-        display: none;
+    .main--right-side p {
+        font-size: 18px;
+    }
+
+    .main--left-side img {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .inner--main {
+        gap: 35px;
+    }
+
+    .main--right-side b {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .main--right-side p {
+        font-size: 16px;
+    }
+
+    .main--left-side img {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .main--right-side b {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .main--left-side img {
+        width: 190px;
+        height: 190px;
     }
 }
 

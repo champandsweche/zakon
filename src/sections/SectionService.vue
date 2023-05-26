@@ -3,11 +3,11 @@
         <div class="container">
             <div class="section--service--inner">
                 <div class="inner--header">
-                    <div class="left-side">
-                        <b>01</b>
-                        <div class="title">
+                    <div class="title">
+                        <span class="title__number">01</span>
+                        <div class="title__content">
                             <p>Услуги и цены</p>
-                            <div class="progress-bar">
+                            <div class="title__progress">
                                 <span></span>
                                 <span></span>
                             </div>
@@ -39,26 +39,29 @@
                         <swiper-slide class="swiper-slide card" v-for="(card, index) in cards" :key="index">
                             <div class="service__card-inner">
                                 <div class="inner__text">
-                                <b class="card-id">#{{ card.id }}</b>
-                                <img :src="card.image" alt="Картинка" width="190" height="190">
-                                <h3 class="card-title">{{ card.title }}</h3>
-                                <p class="card-description">{{ card.description }}</p>
-                                <div class="card-price">
-                                    <span></span>
-                                    <p>От {{ card.price }} за услугу</p>
+                                    <span class="card-id">#{{ card.id }}</span>
+                                    <img :src="card.image" alt="Картинка" width="190" height="190">
+                                    <h3 class="card-title">{{ card.title }}</h3>
+                                    <p class="card-description">{{ card.description }}</p>
                                 </div>
-                                </div>
-                                <button class="card-btn" @click="openModal(card)">
-                                    <div class="card-btn--arrow">
-                                        <svg width="19" height="10" viewBox="0 0 19 10" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
+                                <div class="service__card-bottom">
+                                    <div class="card-price">
+                                        <span></span>
+                                        <p>От {{ card.price }}₽ за услугу</p>
+                                    </div>
+                                    <button class="card-btn" @click="openModal(card)">
+                                        <div class="card-btn--arrow">
+                                            <svg width="19" height="10" viewBox="0 0 19 10" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path
                                                     d="M17.9419 5.44194C18.186 5.19786 18.186 4.80214 17.9419 4.55806L13.9645 0.580583C13.7204 0.336505 13.3247 0.336505 13.0806 0.580583C12.8365 0.82466 12.8365 1.22039 13.0806 1.46447L16.6161 5L13.0806 8.53553C12.8365 8.77961 12.8365 9.17534 13.0806 9.41942C13.3247 9.6635 13.7204 9.6635 13.9645 9.41942L17.9419 5.44194ZM0.5 5.625H17.5V4.375H0.5V5.625Z"
                                                     fill="#F9FBFE"/>
-                                        </svg>
-                                    </div>
-                                    Подробнее
-                                </button>
+                                            </svg>
+                                        </div>
+                                        Подробнее
+                                    </button>
+                                </div>
+
                             </div>
                         </swiper-slide>
                     </swiper>
@@ -75,12 +78,13 @@ import SwiperCore, {Navigation} from "swiper";
 SwiperCore.use([Navigation]);
 import 'swiper/swiper-bundle.css';
 import VueScrollTo from "vue-scrollto";
-
+import ServiceModal from "@/components/ServiceModal.vue";
 
 export default {
     components: {
+        ServiceModal,
         Swiper,
-        SwiperSlide,
+        SwiperSlide
     },
     directives: {
         scrollTo: VueScrollTo,
@@ -143,7 +147,7 @@ export default {
                     },
                     1540: {
                         slidesPerView: 3,
-                        spaceBetween: 100
+                        spaceBetween: 60
                     }
                 },
                 navigation: {
@@ -155,8 +159,21 @@ export default {
                     clickable: true
                 }
             },
-            modules: [Navigation]
+            modules: [Navigation],
+            modalVisible: false,
+            showModalIndex: null,
+            selectedCard: null,
         };
+    },
+    methods: {
+        openModal(card) {
+            this.$emit('open-modal', card);
+        },
+
+        closeModal() {
+            this.modalVisible = false;
+            document.body.classList.remove('modal-open');
+        },
     }
 };
 </script>
@@ -168,54 +185,6 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.left-side {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.left-side b {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 96px;
-    line-height: 117px;
-    color: var(--blue-primary-);
-}
-
-.title {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.title p {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 1.3;
-    color: var(--dark-);
-}
-
-.progress-bar {
-    display: flex;
-    align-items: center;
-}
-
-.progress-bar span:nth-child(1) {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border-radius: 200px;
-    background-color: var(--blue-primary-);
-}
-
-.progress-bar span:nth-child(2) {
-    width: 70%;
-    max-width: 200px;
-    height: 3px;
-    background-color: var(--blue-primary-);
 }
 
 .right--side {
@@ -261,14 +230,12 @@ export default {
     justify-content: space-between;
 }
 
-.inner__text {
+.card {
+    cursor: grab;
+}
 
-}
-.card{
-  cursor: grab;
-}
 .card:active {
-  cursor: grabbing;
+    cursor: grabbing;
 }
 
 .card-id {
